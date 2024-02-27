@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+:root{
+  --c1: rgb(10, 182, 255);
+  --tile: 48px;
+  --square: 150px;
+  --tile-bg: rgb(243, 182, 27);
+  --key: 60px;
+  --button: 240px;
+  --red: red;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  background-color: #23272f;
+  cursor: pointer;
+}
+h3{
+  text-align: center;
+  margin: 10px;
+  margin-top: 20px;
+}
+.sudoku{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  background-color: inherit;
+}
+.button-pad{
+  display: grid;
+  grid-template-columns: var(--button) var(--button);
+  /* border: 1px solid black; */
+  /* margin-top: 10px; */
+  margin-bottom: 20px;
+}
+.button{
+  font-size: 1.75em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border: var(--c1) 4px solid;
+  margin: 10px;
+  margin-bottom: 0;
+}
+.mode{
+  background-color: yellow;
+  border: var(--c1) 4px solid;
+  color: black;
+}
+.board{
+  border:4px solid var(--c1);
+  display: grid;
+  grid-template-columns: var(--square) var(--square) var(--square);
+  grid-template-rows: var(--square) var(--square) var(--square);
+}
+.square{
+  display: grid;
+  grid-template-columns: var(--tile) var(--tile) var(--tile);
+  grid-template-rows: var(--tile) var(--tile) var(--tile);
+  border: 4px solid var(--c1);
+}
+.tile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  font-weight: 900;
+  color: currentColor;
+  border: 2px solid var(--c1);
+}
+.tile-focus{
+  background-color: var(--tile-bg);
+  border: 2px solid var(--c1);
+  border-radius: 0;
+  outline: none;
+}
+.keypad{
+  margin: 20px;
+  display: grid;
+  grid-template-columns: var(--key) var(--key) var(--key) var(--key) var(--key) var(--key) var(--key) var(--key) var(--key) var(--key) ;
+  border: 4px solid var(--c1);
+}
+.key{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  height: 55px;
+  font-weight: 900;
+  color: currentColor;
+  border: 2px solid var(--c1);
+}
+.wide-button{
+  font-size: 2em;
+  height: 60px;
+  width: 400px;
+  border: var(--c1) 4px solid;
+  margin: 10px;
+  margin-bottom: 10px;
+  margin-top: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.updated{
+  background-color: var(--c1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.unsafe{
+  background-color: var(--red);
 }
