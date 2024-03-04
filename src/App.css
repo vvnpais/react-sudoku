@@ -12,22 +12,22 @@
   --bg: #23272f;
   --widthval: 400px;
 }
-@media only screen and (max-width: 1023px)
+@media only screen and (max-width: 1023px) /*notebook*/
+{
+  :root{
+    --widthval: 400px;
+  }
+}
+@media only screen and (max-width: 793px) /*tablet*/
 {
   :root{
     --widthval: 300px;
   }
 }
-@media only screen and (max-width: 793px)
+@media only screen and (max-width: 479px) /*phone*/
 {
   :root{
-    --widthval: 200px;
-  }
-}
-@media only screen and (max-width: 479px)
-{
-  :root{
-    --widthval: 180px;
+    --widthval: 210px;
   }
 }
 
