@@ -10,10 +10,30 @@
   --button: 240px;
   --red: red;
   --bg: #23272f;
+  --widthval: 400px;
 }
+@media only screen and (max-width: 1023px)
+{
+  :root{
+    --widthval: 300px;
+  }
+}
+@media only screen and (max-width: 793px)
+{
+  :root{
+    --widthval: 200px;
+  }
+}
+@media only screen and (max-width: 479px)
+{
+  :root{
+    --widthval: 100px;
+  }
+}
+
 body{
   text-align: center;
-  padding-top: 20px;
+  padding-top: calc(var(--widthval)/20);
   /* border: 5px solid white; */
   display: flex;
   flex-direction: column;
@@ -29,9 +49,9 @@ body{
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 5px;
-  height: 50px;
-  width: 590px;
+  margin: calc(var(--widthval)/80);
+  height: calc(var(--widthval)/8);
+  width: calc(var(--widthval)*3/2);
   /* border: 1px solid red; */
 }
 .easy-input{
@@ -39,38 +59,38 @@ body{
   margin: 0;
   padding: 0;
   border: 0;
-  width:200px;
-  height: 40px;
-  margin-right: 10px;
+  width: calc(var(--widthval)/2);
+  height: calc(var(--widthval)/10);
+  margin-right: calc(var(--widthval)/40);
   outline: auto;
-  font-size: 16px;
+  font-size: calc(var(--widthval)/25);
 }
 .easy-button{
   text-align: center;
   margin: 0;
   padding: 0;
   border: 0;
-  width:200px;
-  height: 45px;
-  margin-left: 10px;
-  font-size: 18px;
+  width:calc(var(--widthval)/2);
+  height: calc((var(--widthval)*9)/80);
+  margin-left: calc(var(--widthval)/40);
+  font-size: calc(var(--widthval)/22);
   color: aliceblue;
   font-weight: 500;
-  border-radius: 4px;
+  border-radius: calc(var(--widthval)/100);
   background-color: rgb(66, 66, 250);
   border: yellow 1px solid;
 }
 
 .note-div{
-  margin: 5px;
-  height: 50px;
-  width: 590px;
+  margin: calc(var(--widthval)/80);
+  height: calc(var(--widthval)/8);
+  width: calc(var(--widthval)*3/2);
 }
 h3{
   text-align: center;
   margin: 0;
-  margin-bottom: 5px;
-  font-size: 16px;
+  margin-bottom: calc(var(--widthval)/80);
+  font-size: calc(var(--widthval)/25);
   /* border: 1px red solid; */
 }
 .sudoku{
@@ -90,16 +110,16 @@ h3{
   grid-template-columns: var(--button) var(--button);
   /* border: 1px solid black; */
   /* margin-top: 10px; */
-  margin-bottom: 20px;
+  margin-bottom: calc(var(--widthval)/20);
 }
 .button{
-  font-size: 1.5em;
+  font-size: calc(var(--widthval)/16);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  height: calc(var(--widthval)/10);
   border: var(--c1) 4px solid;
-  margin: 5px;
+  margin: calc(var(--widthval)/80);
   margin-bottom: 0;
 }
 .mode{
@@ -108,8 +128,8 @@ h3{
   color: black;
 }
 .board{
-  height: 400px;
-  width: 400px;
+  height: calc(var(--widthval));
+  width: calc(var(--widthval));
   border:3px solid var(--c1);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -125,8 +145,8 @@ h3{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2em;
-  font-weight: 600;
+  font-size: calc(var(--widthval)*3/40);
+  font-weight: 500;
   color: currentColor;
   border: 1px solid var(--c1);
 }
@@ -137,9 +157,9 @@ h3{
   outline: none;
 }
 .keypad{
-  margin: 15px;
+  margin: calc(var(--widthval)*3/80);
   display: grid;
-  width: 600px;
+  width: calc(var(--widthval)*3/2);
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
   border: 2px solid var(--c1);
 }
@@ -147,19 +167,19 @@ h3{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2em;
-  height: 50px;
+  font-size: calc(var(--widthval)*3/40);
+  height: calc(var(--widthval)/8);
   font-weight: 400;
   color: currentColor;
   border: 2px solid var(--c1);
 }
 .wide-button{
-  font-size: 2em;
-  height: 40px;
-  width: 400px;
+  font-size: calc(var(--widthval)*3/40);
+  height: calc(var(--widthval)/10);
+  width: calc(var(--widthval));
   border: var(--c1) 4px solid;
-  margin: 5px;
-  margin-bottom: 5px;
+  margin: calc(var(--widthval)/8);
+  margin-bottom: calc(var(--widthval)/80);
   margin-top: 0;
 }
 
