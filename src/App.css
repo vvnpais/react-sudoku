@@ -27,7 +27,7 @@
 @media only screen and (max-width: 479px)
 {
   :root{
-    --widthval: 100px;
+    --widthval: 140px;
   }
 }
 
@@ -78,7 +78,7 @@ body{
   font-weight: 500;
   border-radius: calc(var(--widthval)/100);
   background-color: rgb(66, 66, 250);
-  border: yellow 1px solid;
+  border: yellow calc(var(--widthval)/400) solid;
 }
 
 .note-div{
@@ -107,7 +107,8 @@ h3{
 }
 .button-pad{
   display: grid;
-  grid-template-columns: var(--button) var(--button);
+  width: calc(var(--widthval));
+  grid-template-columns: 1fr 1fr;
   /* border: 1px solid black; */
   /* margin-top: 10px; */
   margin-bottom: calc(var(--widthval)/20);
@@ -118,19 +119,19 @@ h3{
   align-items: center;
   justify-content: center;
   height: calc(var(--widthval)/10);
-  border: var(--c1) 4px solid;
+  border: var(--c1) calc(var(--widthval)/100) solid;
   margin: calc(var(--widthval)/80);
   margin-bottom: 0;
 }
 .mode{
   background-color: yellow;
-  border: var(--c1) 4px solid;
+  border: var(--c1) calc(var(--widthval)/100) solid;
   color: black;
 }
 .board{
   height: calc(var(--widthval));
   width: calc(var(--widthval));
-  border:3px solid var(--c1);
+  border:calc(var(--widthval)*3/400) solid var(--c1);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -139,7 +140,7 @@ h3{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  border: 3px solid var(--c1);
+  border: calc(var(--widthval)*3/400) solid var(--c1);
 }
 .tile{
   display: flex;
@@ -148,11 +149,11 @@ h3{
   font-size: calc(var(--widthval)*3/40);
   font-weight: 500;
   color: currentColor;
-  border: 1px solid var(--c1);
+  border: calc(var(--widthval)/400) solid var(--c1);
 }
 .tile-focus{
   background-color: var(--tile-bg);
-  border: 2px solid var(--c1);
+  border: calc(var(--widthval)/200) solid var(--c1);
   border-radius: 0;
   outline: none;
 }
@@ -161,7 +162,7 @@ h3{
   display: grid;
   width: calc(var(--widthval)*3/2);
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
-  border: 2px solid var(--c1);
+  border: calc(var(--widthval)/200) solid var(--c1);
 }
 .key{
   display: flex;
@@ -171,13 +172,13 @@ h3{
   height: calc(var(--widthval)/8);
   font-weight: 400;
   color: currentColor;
-  border: 2px solid var(--c1);
+  border: calc(var(--widthval)/200) solid var(--c1);
 }
 .wide-button{
   font-size: calc(var(--widthval)*3/40);
   height: calc(var(--widthval)/10);
   width: calc(var(--widthval));
-  border: var(--c1) 4px solid;
+  border: var(--c1) calc(var(--widthval)/100) solid;
   margin: calc(var(--widthval)/8);
   margin-bottom: calc(var(--widthval)/80);
   margin-top: 0;
