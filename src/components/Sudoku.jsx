@@ -8,6 +8,8 @@ import PlayAgain from "./PlayAgain";
 import GameMode from './GameMode';
 import End from "./End";
 import Reset from "./Reset";
+import actionF from './functions';
+import Note from "./Note";
 
 function Sudoku() {
 
@@ -19,6 +21,14 @@ function Sudoku() {
     const [playAgainContent, setPlayAgainContent] = useState("Check");
     const [updatedBoxes, setUpdatedBoxes] = useState(Array(81).fill(0));
     const [unSafe, setUnsafe] = useState(Array(81).fill(0));
+    const [unDeleteable ,setUnDeletable] = useState(Array(81).fill(0));
+    const [easy, setEasy] = useState(60);
+    const [easyBeingSet, setEasyBeingSet] = useState(0);
+
+    useEffect(()=>{
+        let action=actionF();
+        action( easy, "Reset" ,tiles, setTiles, gameState, setGameMode, gameMode,setUnDeletable  );
+    },[]);
 
     useEffect(()=>{
         if(gameMode !== GameMode.play){return ;}
@@ -46,11 +56,12 @@ function Sudoku() {
     useEffect(()=>{
         if(gameState !== GameState.inProgress){return ;}
         if(value === null ){return ;}
+        if(unDeleteable[focus]===1){return;}
         let key=parseInt(value);
         // console.log(key, typeof(key), index);
         const newTiles=[...tiles];
         if(value===""){
-            newTiles[focus]="";
+            newTiles[focus]=null;
             const newUpdatedBoxes=[...updatedBoxes];
             newUpdatedBoxes[focus]=0;
             setUpdatedBoxes(newUpdatedBoxes);
@@ -66,20 +77,21 @@ function Sudoku() {
     },[value]);
 
     return ( 
-        <div className="sudoku"><h3>Note: Tap cell and then tap keypad to fill boxes !!!</h3>
+        <div className="sudoku">
+            <Note setEasy={setEasy} easyBeingSet={easyBeingSet} setEasyBeingSet={setEasyBeingSet}/>
             <div className="button-pad">
-                <CheckButton setFocus={setFocus} setUpdatedBoxes={setUpdatedBoxes} setPlayAgainContent={setPlayAgainContent} setGameMode={setGameMode} gameMode={gameMode} gameState={gameState} tiles={tiles} setTiles={setTiles}/>
+                <CheckButton easy={easy} setUnDeletable={setUnDeletable} setFocus={setFocus} setUpdatedBoxes={setUpdatedBoxes} setPlayAgainContent={setPlayAgainContent} setGameMode={setGameMode} gameMode={gameMode} gameState={gameState} tiles={tiles} setTiles={setTiles}/>
                 <SolveButton setFocus={setFocus} setUpdatedBoxes={setUpdatedBoxes} setPlayAgainContent={setPlayAgainContent} setGameMode={setGameMode} gameMode={gameMode} gameState={gameState} tiles={tiles} setTiles={setTiles}/>
             </div>
             <Board unSafe={unSafe} updatedBoxes={updatedBoxes} gameState={gameState} focus={focus} setFocus={setFocus} className="board" tiles={tiles} setValue={setValue}/>
             <Keypad setValue={setValue}/>
             <div className="button-pad">
-                <PlayAgain content={playAgainContent} tiles={tiles} setTiles={setTiles} gameState={gameState} setGameMode={setGameMode}/>
-                <Reset setUnsafe={setUnsafe} setTiles={setTiles} setUpdatedBoxes={setUpdatedBoxes} setFocus={setFocus}/>
+                <PlayAgain easy={easy} setUnDeletable={setUnDeletable} setUpdatedBoxes={setUpdatedBoxes} gameMode={gameMode} content={playAgainContent} tiles={tiles} setTiles={setTiles} gameState={gameState} setGameMode={setGameMode}/>
+                <Reset easy={easy} setUnDeletable={setUnDeletable} gameMode={gameMode} gameState={gameState} setGameMode={setGameMode} tiles={tiles}  setUnsafe={setUnsafe} setTiles={setTiles} setUpdatedBoxes={setUpdatedBoxes} setFocus={setFocus}/>
             </div>
             <End gameMode={gameMode}/>
         </div>
-    );
+    );  
 }
 
 export default Sudoku;

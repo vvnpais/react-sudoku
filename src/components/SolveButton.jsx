@@ -1,4 +1,5 @@
 import GameMode from './GameMode';
+import actionF from './functions';
 function SolveButton({ setPlayAgainContent, setGameMode, gameMode, gameState ,tiles, setTiles, setUpdatedBoxes, setFocus }) {
     let set=null;
     if(gameMode === GameMode.solve){set="mode";}

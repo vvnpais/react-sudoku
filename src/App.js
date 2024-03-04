@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 function App() {
   useEffect(()=>{
-    document.body.focus();
+    document.title="Sudoku Game/Solver"
   },[]);
 
   return (
