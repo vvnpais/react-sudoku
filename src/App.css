@@ -12,12 +12,10 @@ body{
   text-align: center;
   padding-top: 20px;
   /* border: 5px solid white; */
-  /* display: flex;
-  flex-direction: column; */
-  /* align-items: center;
-  justify-items: center;
-  justify-content: center;
-  align-content: center; */
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  place-items: center;
   color: white;
   background-color: var(--bg);
   cursor: pointer;
@@ -80,7 +78,9 @@ h3{
   color: inherit;
   background-color: inherit;
   position: relative;
-  border: 1px solid var(--bg);
+  left: 50%;
+  transform: translate(-50%,0);
+  /* border: 1px solid red; */
 }
 .button-pad{
   display: grid;
@@ -90,7 +90,7 @@ h3{
   margin-bottom: 20px;
 }
 .button{
-  font-size: 1.75em;
+  font-size: 1.5em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,25 +105,27 @@ h3{
   color: black;
 }
 .board{
-  border:4px solid var(--c1);
+  height: 400px;
+  width: 400px;
+  border:3px solid var(--c1);
   display: grid;
-  grid-template-columns: var(--square) var(--square) var(--square);
-  grid-template-rows: var(--square) var(--square) var(--square);
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 .square{
   display: grid;
-  grid-template-columns: var(--tile) var(--tile) var(--tile);
-  grid-template-rows: var(--tile) var(--tile) var(--tile);
-  border: 4px solid var(--c1);
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  border: 3px solid var(--c1);
 }
 .tile{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.5em;
-  font-weight: 900;
+  font-size: 2em;
+  font-weight: 600;
   color: currentColor;
-  border: 2px solid var(--c1);
+  border: 1px solid var(--c1);
 }
 .tile-focus{
   background-color: var(--tile-bg);
@@ -134,26 +136,27 @@ h3{
 .keypad{
   margin: 15px;
   display: grid;
-  grid-template-columns: var(--key) var(--key) var(--key) var(--key) var(--key) var(--key) var(--key) var(--key) var(--key) var(--key) ;
-  border: 4px solid var(--c1);
+  width: 600px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  border: 2px solid var(--c1);
 }
 .key{
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2em;
-  height: 55px;
-  font-weight: 900;
+  height: 50px;
+  font-weight: 400;
   color: currentColor;
   border: 2px solid var(--c1);
 }
 .wide-button{
   font-size: 2em;
-  height: 60px;
+  height: 40px;
   width: 400px;
   border: var(--c1) 4px solid;
-  margin: 10px;
-  margin-bottom: 10px;
+  margin: 5px;
+  margin-bottom: 5px;
   margin-top: 0;
 }
 
