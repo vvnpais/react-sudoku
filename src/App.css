@@ -1,5 +1,5 @@
-*:focus{
-  outline: none;
+*{
+  -webkit-tap-highlight-color: transparent;
 }
 :root{
   --c1: rgb(10, 182, 255);
